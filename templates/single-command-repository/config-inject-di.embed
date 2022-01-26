@@ -1,0 +1,2 @@
+const [[ . ]]RepositoryImpl = [[ . ]]Repository(baseUrl, axios)
+const [[ . ]]UseCaseImpl = [[ . ]]UseCase([[ . ]]RepositoryImpl)

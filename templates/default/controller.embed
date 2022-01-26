@@ -1,0 +1,20 @@
+class [[ .Controller ]]Controller {
+
+  constructor(
+    context,[[ range .Repositories ]]
+    [[ . ]]UseCase,[[ end ]]
+  ) {
+    this.context = context[[ range .Repositories ]]
+    this.[[ . ]]UseCase = [[ . ]]UseCase[[ end ]]
+  }
+
+  async mounted() {
+    try {
+      //TODO
+    } catch (error) {
+      //HANDLER ERROR
+    }
+  }
+}
+
+export default [[ .Controller ]]Controller

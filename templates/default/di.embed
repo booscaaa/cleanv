@@ -1,0 +1,21 @@
+import Handler from '../../../../core/util/Handler'
+import axios from 'axios'
+[[ range .Repositories ]]
+import [[ . ]]Repository from '../data/repository/[[ . ]]Repository'
+import [[ . ]]UseCase from '../domain/usecase/[[ . ]]UseCase'
+[[ end ]]
+import [[ .Controller ]]Controller from '../controller/[[ .Programa ]]Controller'
+
+const baseUrl = new Handler().getUrl()
+[[ range .Repositories ]]
+const [[ . ]]RepositoryImpl = [[ . ]]Repository(baseUrl, axios)
+const [[ . ]]UseCaseImpl = [[ . ]]UseCase([[ . ]]RepositoryImpl)
+[[ end ]]
+
+const [[ .Programa ]]Controller = (context) =>
+  new [[ .Controller ]]Controller(
+    context,[[ range .Repositories ]]
+    [[ . ]]UseCaseImpl,[[ end ]]
+  )
+
+export { [[ .Programa ]]Controller }

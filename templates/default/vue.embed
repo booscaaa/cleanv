@@ -1,0 +1,17 @@
+<template>
+  <div>
+    <!-- your code here -->
+  </div>
+</template>
+
+<script>
+import { [[ .Programa ]]Controller } from "../di/di";
+export default {
+  data: (context) => ({
+    controller: [[ .Programa ]]Controller(context),
+  }),
+  mounted() {
+    this.controller.mounted();
+  },
+};
+</script>

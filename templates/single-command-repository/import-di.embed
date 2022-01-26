@@ -1,0 +1,2 @@
+import [[ . ]]Repository from '../data/repository/[[ . ]]Repository'
+import [[ . ]]UseCase from '../domain/usecase/[[ . ]]UseCase'
