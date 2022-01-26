@@ -1,18 +1,9 @@
-import Handler from '../../../../../core/util/Handler'
-
-const [[ . ]]Repository = (baseUrl, axios) => async (ablFilter) => {
+const [[ . ]]Repository = (axios) => async () => {
   try {
-    const response = await axios.get(`${baseUrl}/rest/TODO`, {
-      params: {
-        filter: {
-          ablFilter: ablFilter,
-        },
-      },
-      withCredentials: true,
-    })
+    const response = await axios.get('/rest/TODO')
     return response //TODO
   } catch (error) {
-    throw new Handler().trataErro(error)
+    throw error
   }
 }
 

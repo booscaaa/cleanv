@@ -1,2 +1,2 @@
-const [[ . ]]RepositoryImpl = [[ . ]]Repository(baseUrl, axios)
+const [[ . ]]RepositoryImpl = [[ . ]]Repository(instance)
 const [[ . ]]UseCaseImpl = [[ . ]]UseCase([[ . ]]RepositoryImpl)

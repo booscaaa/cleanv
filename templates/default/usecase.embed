@@ -1,7 +1,7 @@
-const [[ . ]]UseCase = (repository) => async (query) => {
+const [[ . ]]UseCase = (repository) => async () => {
   try {
     //TODO
-    return await repository(query)
+    return await repository()
   } catch (error) {
     throw error
   }

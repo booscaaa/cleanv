@@ -88,7 +88,7 @@ func createData(screen, module, name string) {
 	}
 
 	tmpl := template.New("import-di.embed").Delims("[[", "]]")
-	tmpl, _ = tmpl.ParseFS(TemplateFs, "templates/single-command-repository/import-di.embed")
+	tmpl, _ = tmpl.ParseFS(util.TemplateFs, "templates/single-command-repository/import-di.embed")
 
 	var importDiText bytes.Buffer
 	tmpl.Execute(&importDiText, name)
@@ -96,7 +96,7 @@ func createData(screen, module, name string) {
 	importDiTextResult := importDiText.String()
 
 	tmpl = template.New("config-inject-di.embed").Delims("[[", "]]")
-	tmpl, _ = tmpl.ParseFS(TemplateFs, "templates/single-command-repository/config-inject-di.embed")
+	tmpl, _ = tmpl.ParseFS(util.TemplateFs, "templates/single-command-repository/config-inject-di.embed")
 
 	var configinjectDiText bytes.Buffer
 	tmpl.Execute(&configinjectDiText, name)
@@ -118,7 +118,7 @@ func createData(screen, module, name string) {
 			newDI.WriteString(importDiTextResult)
 		}
 
-		if strings.Contains(text, "const baseUrl") {
+		if strings.Contains(text, "const instance = axiosInstance") {
 			newDI.WriteString("\n")
 			newDI.WriteString(configinjectDiTextResult + "\n")
 		}
@@ -229,8 +229,8 @@ func init() {
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	repositoryCmd.Flags().StringP("screen", "p", "", "Nome do screen a ser criado")
-	repositoryCmd.Flags().StringP("module", "m", "", "Nome do module a ser criado")
-	repositoryCmd.Flags().StringP("name", "n", "", "Nome do repository a ser criado")
-	repositoryCmd.Flags().BoolP("delete", "d", false, "Deletar repository")
+	repositoryCmd.Flags().StringP("screen", "s", "", "The screen name to be created")
+	repositoryCmd.Flags().StringP("module", "m", "", "The module name to be created")
+	repositoryCmd.Flags().StringP("name", "n", "", "The repository name to be created")
+	repositoryCmd.Flags().BoolP("delete", "d", false, "Delete repository")
 }

@@ -119,6 +119,10 @@ var templateCmd = &cobra.Command{
 			util.PopulateFiles(diPath+"/"+"di.js", "di.embed", "default", defaultTemplate)
 		}
 
+		if _, err := os.Stat(diPath + "/" + "axios.js"); os.IsNotExist(err) {
+			util.PopulateFiles(diPath+"/"+"axios.js", "axios.embed", "default", defaultTemplate)
+		}
+
 		if _, err := os.Stat(usecasePath); os.IsNotExist(err) {
 			os.MkdirAll(usecasePath, os.ModePerm)
 		}
@@ -150,7 +154,7 @@ func init() {
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	templateCmd.Flags().StringP("screen", "p", "", "The screen name to be created")
+	templateCmd.Flags().StringP("screen", "s", "", "The screen name to be created")
 	templateCmd.Flags().StringP("module", "m", "", "The module name to be created")
 	templateCmd.Flags().StringP("repositories", "r", "", "Name of repositories to be created separated by comma")
 }

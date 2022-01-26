@@ -1,0 +1,12 @@
+import axios from 'axios'
+
+const axiosInstace = axios.create({
+  baseURL: process.env.VUE_APP_API_BASE_URL,
+  hearder: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+    Access: 'application/json',
+  },
+})
+
+export default axiosInstace

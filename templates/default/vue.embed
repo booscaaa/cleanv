@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import { [[ .Programa ]]Controller } from "../di/di";
+import { [[ .Screen ]]Controller } from "../di/di";
 export default {
   data: (context) => ({
-    controller: [[ .Programa ]]Controller(context),
+    controller: [[ .Screen ]]Controller(context),
   }),
   mounted() {
     this.controller.mounted();

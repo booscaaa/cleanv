@@ -1,21 +1,21 @@
-import Handler from '../../../../core/util/Handler'
-import axios from 'axios'
+import axiosInstance from './axios'
 [[ range .Repositories ]]
 import [[ . ]]Repository from '../data/repository/[[ . ]]Repository'
 import [[ . ]]UseCase from '../domain/usecase/[[ . ]]UseCase'
 [[ end ]]
-import [[ .Controller ]]Controller from '../controller/[[ .Programa ]]Controller'
+import [[ .Controller ]]Controller from '../controller/[[ .Screen ]]Controller'
 
-const baseUrl = new Handler().getUrl()
+const instance = axiosInstance
+
 [[ range .Repositories ]]
-const [[ . ]]RepositoryImpl = [[ . ]]Repository(baseUrl, axios)
+const [[ . ]]RepositoryImpl = [[ . ]]Repository(instance)
 const [[ . ]]UseCaseImpl = [[ . ]]UseCase([[ . ]]RepositoryImpl)
 [[ end ]]
 
-const [[ .Programa ]]Controller = (context) =>
+const [[ .Screen ]]Controller = (context) =>
   new [[ .Controller ]]Controller(
     context,[[ range .Repositories ]]
     [[ . ]]UseCaseImpl,[[ end ]]
   )
 
-export { [[ .Programa ]]Controller }
+export { [[ .Screen ]]Controller }
