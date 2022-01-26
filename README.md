@@ -72,11 +72,15 @@ Windows:
 
 <br>
 
+
+
+The initial structu of vue app code like this:
+
+![Struct1](../master/assets-readme/struct1.png?raw=true)
+
 <br>
 <br>
-
-### Commands
-
+### With commands
 
 # cleanv template
 
@@ -88,9 +92,9 @@ This command will generate the complete structure for developing a new program o
 Positioned in the root of the project with vue.js run the command:
 
 ```sh
-cleanv template -s screen_name -m module_name -r findSomething,createSomething
+cleanv template -s payment001 -m payment -r findPayment
 ```
-![Prompt1](../master/assets-readme/struct1.png?raw=true)
+![Prompt1](../master/assets-readme/struct2.png?raw=true)
 
 <br>
 
@@ -104,9 +108,9 @@ This command will generate the structure of a new api call within a ready-made s
 Positioned in the root of the project with vue.js run the command:
 
 ```sh
-cleanv repository -s screen_name -m module_name -n findSomething1
+cleanv repository -s payment001 -m payment -n findTickets
 ```
-![Prompt1](../master/assets-readme/struct2.png?raw=true)
+![Prompt1](../master/assets-readme/struct3.png?raw=true)
 
 <br>
 <br>
