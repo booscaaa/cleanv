@@ -22,7 +22,7 @@ Connect with me at [LinkedIn](https://www.linkedin.com/in/booscaaa/).
 <br>
 
 
-## Funcionalidades
+## Functionalities
 
 - Creating a standard development framework
 - Creating separate files within existing code structures
@@ -30,10 +30,10 @@ Connect with me at [LinkedIn](https://www.linkedin.com/in/booscaaa/).
 
 <br>
 
-## Começando
+## Starting
 
 
-### Instalação
+### Installation
 <br>
 
 **Download the library and configure it in the path/environment variables of your operating system**
