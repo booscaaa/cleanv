@@ -136,6 +136,263 @@ cleanv update
 <br>
 <br>
 
+### Examples of code struct generation
+```sh
+cleanv template -s payment001 -m payment -r findPayment
+```
+```
+- module
+  - payment
+    - payment001
+      - di
+        - di.js
+        - axios.js
+      - controller
+        - paymentController001.js
+      - data
+        - repository
+          - findPaymentRepository.js
+      - domain
+        - model
+          - payment001.js
+        - usecase
+          - findPaymentUseCase.js
+      - view
+        - payment001.vue
+```   
+
+```js
+//Repository
+const findPaymentRepository = (axios) => async () => {
+  try {
+    const response = await axios.get('/rest/TODO')
+    return response //TODO
+  } catch (error) {
+    throw error
+  }
+}
+
+export default findPaymentRepository
+```
+
+```js
+//Usecase
+const findPaymentUseCase = (repository) => async () => {
+  try {
+    //TODO
+    return await repository()
+  } catch (error) {
+    throw error
+  }
+}
+
+export default findPaymentUseCase
+```
+```js
+//Model
+class Payment001 {
+    constructor() {}
+}
+
+export default Payment001
+```
+```js
+//Dependencie Injection
+import axiosInstance from './axios'
+
+import findPaymentRepository from '../data/repository/findPaymentRepository'
+import findPaymentUseCase from '../domain/usecase/findPaymentUseCase'
+
+import Payment001Controller from '../controller/payment001Controller'
+
+const instance = axiosInstance
+
+const findPaymentRepositoryImpl = findPaymentRepository(instance)
+const findPaymentUseCaseImpl = findPaymentUseCase(findPaymentRepositoryImpl)
+
+const payment001Controller = (context) =>
+  new Payment001Controller(
+    context,
+	  findPaymentUseCaseImpl,
+  )
+
+export { payment001Controller }
+```
+
+```js
+//Axios instance for Dependencie Injection
+import axios from 'axios'
+
+const axiosInstace = axios.create({
+  baseURL: process.env.VUE_APP_API_BASE_URL,
+  hearder: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+    Access: 'application/json',
+  },
+})
+
+export default axiosInstace
+```
+
+```js
+//Controller
+class Payment001Controller {
+
+  constructor(
+    context,
+    findPaymentUseCase,
+  ) {
+    this.context = context
+    this.findPaymentUseCase = findPaymentUseCase
+  }
+
+  async mounted() {
+    try {
+      //TODO
+    } catch (error) {
+      //HANDLER ERROR
+    }
+  }
+}
+
+export default Payment001Controller
+```
+```html
+//Vue Screen
+<template>
+  <div>
+    <!-- your code here -->
+  </div>
+</template>
+
+<script>
+import { payment001Controller } from "../di/di";
+export default {
+  data: (context) => ({
+    controller: payment001Controller(context),
+  }),
+  mounted() {
+    this.controller.mounted();
+  },
+};
+</script>
+
+```
+
+### Adding new repository
+```sh
+cleanv repository -s payment001 -m payment -n findTickets
+```
+```
+- module
+  - payment
+    - payment001
+      - di
+        - di.js
+        - axios.js
+      - controller
+        - paymentController001.js
+      - data
+        - repository
+          - findPaymentRepository.js
+          - findTicketsRepository.js
+      - domain
+        - model
+          - payment001.js
+        - usecase
+          - findPaymentUseCase.js
+          - findTicketsUseCase.js
+      - view
+        - payment001.vue
+```  
+```js
+//Repository
+const findTicketsRepository = (axios) => async () => {
+  try {
+    const response = await axios.get('/rest/TODO')
+    return response //TODO
+  } catch (error) {
+    throw error
+  }
+}
+
+export default findTicketsRepository
+```
+
+```js
+//Usecase
+const findTicketsUseCase = (repository) => async () => {
+  try {
+    //TODO
+    return await repository()
+  } catch (error) {
+    throw error
+  }
+}
+
+export default findTicketsUseCase
+```
+```js
+//Dependencie Injection
+import axiosInstance from './axios'
+
+import findTicketsRepository from '../data/repository/findTicketsRepository'
+import findTicketsUseCase from '../domain/usecase/findTicketsUseCase'
+
+import findPaymentRepository from '../data/repository/findPaymentRepository'
+import findPaymentUseCase from '../domain/usecase/findPaymentUseCase'
+
+import Payment001Controller from '../controller/payment001Controller'
+
+const instance = axiosInstance
+
+const findTicketsRepositoryImpl = findTicketsRepository(instance)
+const findTicketsUseCaseImpl = findTicketsUseCase(findTicketsRepositoryImpl)
+
+
+const findPaymentRepositoryImpl = findPaymentRepository(instance)
+const findPaymentUseCaseImpl = findPaymentUseCase(findPaymentRepositoryImpl)
+
+
+const payment001Controller = (context) =>
+  new Payment001Controller(
+    context,
+		findTicketsUseCaseImpl,
+    findPaymentUseCaseImpl,
+  )
+
+export { payment001Controller }
+```
+```js
+//Controller
+class Payment001Controller {
+
+  constructor(
+    context,
+    findTicketsUseCase
+    findPaymentUseCase,
+  ) {
+    this.context = context
+    this.findTicketsUseCase = findTicketsUseCase
+    this.findPaymentUseCase = findPaymentUseCase
+  }
+
+  async mounted() {
+    try {
+      //TODO
+    } catch (error) {
+      //HANDLER ERROR
+    }
+  }
+}
+
+export default Payment001Controller
+```
+
+
+
+
 ## Contributing
 
 You can send how many PR's do you want, I'll be glad to analyze and accept them! And if you have any question about the project...
