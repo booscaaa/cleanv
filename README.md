@@ -74,7 +74,7 @@ Windows:
 
 
 
-The initial structu of vue app code like this:
+The initial struct of vue app code like this:
 
 ![Struct1](../master/assets-readme/struct1.png?raw=true)
 
