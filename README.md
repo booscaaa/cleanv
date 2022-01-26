@@ -80,6 +80,7 @@ The initial struct of vue app code like this:
 
 <br>
 <br>
+
 ### With commands
 
 # cleanv template
