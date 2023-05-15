@@ -1,12 +1,20 @@
+import Handler from "@/core/util/Handler";
 import axios from 'axios'
 
-const axiosInstace = axios.create({
+const axiosInstance = axios.create({
   baseURL: process.env.VUE_APP_API_BASE_URL,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
     Access: 'application/json',
   },
+})
+
+axiosInstance.interceptors.response.use((response) => {
+  return response;
+}, async (err) => {
+  const erroTratado = new Handler().trataErro(err)
+  return Promise.reject(erroTratado)
 })
 
 export default axiosInstace

@@ -1,10 +1,5 @@
 const [[ . ]]UseCase = (repository) => async () => {
-  try {
-    //TODO
-    return await repository()
-  } catch (error) {
-    throw error
-  }
+  return await repository()
 }
 
 export default [[ . ]]UseCase
